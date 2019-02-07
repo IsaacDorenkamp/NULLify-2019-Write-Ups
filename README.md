@@ -8,7 +8,10 @@ Web
 
 Clearly, this problem starts out as a run-of the mill "robots.txt" problem. First, we go see what robots.txt is hiding. The contents we find are:
 
-`User-agent: *<br />Disallow: /cgi-bin/exploit`
+```
+    User-agent: *
+    Disallow: /cgi-bin/exploit
+```
 
 So our flag is going to be somewhere in this "exploit" page. Visiting this page, we see something like the following:
 
