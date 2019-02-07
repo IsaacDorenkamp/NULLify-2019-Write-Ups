@@ -35,7 +35,29 @@ command we insert `ls`. We obtain the following response:
 
 Hmmm, no luck. Let's try looking at things top down: this time, make the command `ls /`. As a result, we obtain
 
-`bin<br />boot<br />dev<br />etc<br />flag.txt<br />home<br />lib<br />lib64<br />media<br />mnt<br />opt<br />packages<br />proc<br />root<br />run<br />sbin<br />srv<br />sys<br />tmp<br />usr<br />var`
+```
+    bin
+    boot
+    dev
+    etc
+    flag.txt
+    home
+    lib
+    lib64
+    media
+    mnt
+    opt
+    packages
+    proc
+    root
+    run
+    sbin
+    srv
+    sys
+    tmp
+    usr
+    var
+```
 
 `flag.txt`! We are in business. The next part is trivial. Simply send the command `cat /flag.txt`.
 
