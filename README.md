@@ -8,8 +8,7 @@ Web
 
 Clearly, this problem starts out as a run-of the mill "robots.txt" problem. First, we go see what robots.txt is hiding. The contents we find are:
 
-`User-agent: *
-Disallow: /cgi-bin/exploit`
+`User-agent: *<br />Disallow: /cgi-bin/exploit`
 
 So our flag is going to be somewhere in this "exploit" page. Visiting this page, we see something like the following:
 
@@ -36,47 +35,7 @@ command we insert `ls`. We obtain the following response:
 
 Hmmm, no luck. Let's try looking at things top down: this time, make the command `ls /`. As a result, we obtain
 
-`bin
-
-boot
-
-dev
-
-etc
-
-flag.txt
-
-home
-
-lib
-
-lib64
-
-media
-
-mnt
-
-opt
-
-packages
-
-proc
-
-root
-
-run
-
-sbin
-
-srv
-
-sys
-
-tmp
-
-usr
-
-var`
+`bin<br />boot<br />dev<br />etc<br />flag.txt<br />home<br />lib<br />lib64<br />media<br />mnt<br />opt<br />packages<br />proc<br />root<br />run<br />sbin<br />srv<br />sys<br />tmp<br />usr<br />var`
 
 `flag.txt`! We are in business. The next part is trivial. Simply send the command `cat /flag.txt`.
 
@@ -210,13 +169,13 @@ directory with ';ls -l /', we see that we need root privileges. One effective wa
 allowed to temporarily elevate the user's privilege to execute certain tasks. We can actually search for SUID programs, thanks to the Linux command `find`.
 In particular, we send a request with the ip value set to `;find / -perm -u=s -type f` and this will search the system for SUID programs. We get a nice list after
 this request - which, be aware, takes a little while to complete, so be patient. There is one file in this list which sticks out like a sore thumb, however:
-`/bin/readfile`. We pounce on this, and try a request with the ip value set to `;/bin/readfile /root.txt`, and just like that, we have the last ofall the Web flags:
+`/bin/readfile`. We pounce on this, and try a request with the ip value set to `;/bin/readfile /root.txt`, and just like that, we have the last of all the Web flags:
 `NULL{su1d_0_hAcc_her0}`.
 
 PWN
 =====================
 
-## PWN 100
+## PWN 100 - Easy Intro
 This problem is an extremely quick and easy solve. Upon running the executable, it only demands we overflow the buffer. This is easily achieved. The flag is
 `NULL{6dcda80356a36ec26b38253a373d64a177b98b428b18d857cd4144308340ba4f}`.
 
